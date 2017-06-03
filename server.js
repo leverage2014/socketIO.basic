@@ -13,9 +13,10 @@ io.on('connection', function(socket){
 		console.log('Message received: ' + message.text);
 
 		// io.emit : send to all 
-
+		io.emit('message', message);
+		
 		// send to others except self
-		socket.broadcast.emit('message', message);
+		//socket.broadcast.emit('message', message);
 	});
 
 	socket.emit('message', {
