@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function(socket){
 	console.log('User connected via socket.io!');
-
+	
 	socket.on('message', function(message){
 		console.log('Message received: ' + message.text);
 
@@ -23,6 +23,7 @@ io.on('connection', function(socket){
 
 	socket.emit('message', {
 		text: 'Welcome to the chat application!',
+		name: 'System',
 		timestamp: moment().valueOf()
 	});
 });
